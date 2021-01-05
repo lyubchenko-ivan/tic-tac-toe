@@ -62,6 +62,26 @@ class Desk
         end
     end
 
+    def display_final_desk
+        self.rows.times do |row|
+            self.cols.times do |column|
+                print " #{self.desk[row][column]} "
+                print "|" if column != 2
+            end
+            puts
+
+            if (row != 2)
+                self.cols.times do |column|
+                    print "---"
+                    print '+' if column != 2
+                end
+                puts
+            end
+
+
+        end
+    end    
+
     def take_sym(sym, index)
         row = (index - 1) / 3
         col = (index - 1) % 3
@@ -71,7 +91,7 @@ class Desk
     def game_over?(player)
         #три по горизонтали
         self.desk.each  do |row|
-             if (row.all? {|el| el == player.amplua})
+            if (row.all? {|el| el == player.amplua})
                 puts "Победил игрок #{player.username}. Игра окончена."
                 return  true
             end

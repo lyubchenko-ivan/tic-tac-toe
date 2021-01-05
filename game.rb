@@ -50,4 +50,4 @@ begin
   game.make_a_move(game_desk)
 end while (!game_desk.game_over?(player1) && !game_desk.game_over?(player2) && !game.game_over?)
 
-# game_desk.display_desk
+game_desk.display_final_desk
